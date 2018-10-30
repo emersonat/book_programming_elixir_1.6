@@ -11,32 +11,9 @@ defmodule Issues.CLI do
   """
 
   def run(argv) do
-    argv
-    |> parse_args
-    |> process
-
+    parse_args(argv)
   end
 
-
-  defp process(:help) do
-    IO.puts """
-      usage: issues <user> <project> [count | #@default_count]
-    """
-    System.halt(0)
-  end
-
-  defp process({user,project,_count}) do
-    Issues.GithubIssues.fetch(user,project)
-    |> decode_response()
-  end
-
-  defp decode_response({:ok, body}), do: body
-
-  defp decode_response({:error, body}) do
-    IO.puts "Error fetching from Github: "
-
-    System.halt(2)
-  end
 
   @doc """
   'argv' can be -h or --help, which returns :help
@@ -53,7 +30,6 @@ defmodule Issues.CLI do
     |> args_to_internal_representation()
 
   end
-
 
 
   defp args_to_internal_representation([user,project,count])do

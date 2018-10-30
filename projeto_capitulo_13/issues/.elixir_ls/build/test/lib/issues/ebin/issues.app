@@ -1,7 +1,6 @@
 {application,issues,
-             [{applications,[kernel,stdlib,elixir,logger,httpoison,poison]},
+             [{applications,[kernel,stdlib,elixir,logger]},
               {description,"issues"},
-              {modules,['Elixir.Issues','Elixir.Issues.CLI',
-                        'Elixir.Issues.GithubIssues']},
+              {modules,['Elixir.Issues','Elixir.Issues.CLI']},
               {registered,[]},
               {vsn,"0.1.0"}]}.
