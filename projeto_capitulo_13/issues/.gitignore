@@ -23,4 +23,5 @@ erl_crash.dump
 issues-*.tar
 
 /.elixir_ls/
+/.vscode/
 
